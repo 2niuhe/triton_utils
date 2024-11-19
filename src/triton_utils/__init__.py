@@ -1,3 +1,3 @@
-from .mod import add_three
+from .test import assert_close, create_input, create_input_like, default_shapes
 
-__all__ = ["add_three"]
+__all__ = [create_input, create_input_like, default_shapes, assert_close]
