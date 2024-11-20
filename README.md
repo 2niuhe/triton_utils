@@ -4,7 +4,10 @@
 
 A collection of utility functions and tools for Triton kernel development.
 
+Most code copied from project below:
 
+- [BobMcDear/attorch: A subset of PyTorch's neural network modules, written in Python using OpenAI's Triton.](https://github.com/BobMcDear/attorch)
+- [FlagOpen/FlagGems: FlagGems is an operator library for large language models implemented in Triton Language.](https://github.com/FlagOpen/FlagGems)
 
 - pre-commit
 
