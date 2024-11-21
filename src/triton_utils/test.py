@@ -7,6 +7,8 @@ from typing import List, Optional, Tuple
 import torch
 from torch import Tensor
 
+from .global_var import get_device
+
 
 def default_shapes(min_dim: int = 0, max_dim: int = 4) -> List[Tuple[int, ...]]:
     """
@@ -53,8 +55,7 @@ def default_shapes(min_dim: int = 0, max_dim: int = 4) -> List[Tuple[int, ...]]:
 def create_input(
     shape: Tuple[int, ...],
     dtype: torch.dtype = torch.float32,
-    device="cpu",
-    requires_grad: bool = True,
+    requires_grad: bool = False,
     seed: Optional[int] = 0,
 ) -> Tensor:
     """
@@ -70,6 +71,7 @@ def create_input(
     Returns:
         Tensor with random numbers.
     """
+    device = get_device()
     if seed is not None:
         torch.manual_seed(seed)
 

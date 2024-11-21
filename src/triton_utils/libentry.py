@@ -4,7 +4,7 @@ import threading
 import torch
 import triton
 
-from .global_var import DEFAUTL_DEVICE
+from .global_var import get_device
 
 
 class LibEntry(triton.KernelInterface):
@@ -12,7 +12,7 @@ class LibEntry(triton.KernelInterface):
         self,
         fn,
     ):
-        device_module = getattr(torch, DEFAUTL_DEVICE)
+        device_module = getattr(torch, get_device())
         DEVICE_COUNT = device_module.device_count()
         self.fn = fn
         self.arg_names = fn.arg_names
