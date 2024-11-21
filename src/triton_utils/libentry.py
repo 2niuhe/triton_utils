@@ -4,8 +4,7 @@ import threading
 import torch
 import triton
 
-# TODO: compatible to different gpu device
-DEVICE_COUNT = torch.cuda.device_count()
+from .global_var import DEFAUTL_DEVICE
 
 
 class LibEntry(triton.KernelInterface):
@@ -13,6 +12,8 @@ class LibEntry(triton.KernelInterface):
         self,
         fn,
     ):
+        device_module = getattr(torch, DEFAUTL_DEVICE)
+        DEVICE_COUNT = device_module.device_count()
         self.fn = fn
         self.arg_names = fn.arg_names
         self.divisibility = 16

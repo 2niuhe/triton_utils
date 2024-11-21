@@ -1,0 +1,1 @@
+DEFAUTL_DEVICE = "cuda"
