@@ -1,7 +1,5 @@
 -include .env
 PROJECTNAME=$(shell basename "$(PWD)")
-BINARY=template
-VERSION=0.10
 
 MAKEFILAGS += --silent
 
@@ -60,6 +58,11 @@ pipedit:
 	@pip install -e .
 
 ## pypitest: Upload package to testpypi
-pypitest: piptar
+pypitest:
 	@echo "Uploading to testpypi"
 	@python -m twine upload --repository testpypi dist/*
+
+## pypiupload: Upload package to pypi
+pypiupload:
+	@echo "Uploading to pypi"
+	@python -m twine upload --repository pypi dist/*
