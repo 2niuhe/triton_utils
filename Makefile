@@ -32,6 +32,11 @@ format:
 	@echo " > Formating code..."
 	@ruff format .
 
+## mypy: run mypy check
+mypy:
+	@echo " > Checking types"
+	@mypy
+
 ## unittest: Run all unit test
 unittest:
 	@echo " > Testing..."

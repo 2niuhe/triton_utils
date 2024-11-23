@@ -8,8 +8,10 @@ Most code copied from project below:
 
 - [BobMcDear/attorch: A subset of PyTorch's neural network modules, written in Python using OpenAI's Triton.](https://github.com/BobMcDear/attorch)
 - [FlagOpen/FlagGems: FlagGems is an operator library for large language models implemented in Triton Language.](https://github.com/FlagOpen/FlagGems)
+- [lectures/lecture\_014/triton\_util.py at main · gpu-mode/lectures](https://github.com/gpu-mode/lectures/blob/main/lecture_014/triton_util.py)
 
-- pre-commit
+
+### pre-commit
 
 ```
 pip install pre-commit
