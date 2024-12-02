@@ -1,3 +1,6 @@
+import ctypes
+
+import torch
 import triton
 import triton.language as tl
 
@@ -20,3 +23,11 @@ def get_1d_mask(offs, max):
 @triton.jit
 def get_2d_mask(offs_0, offs_1, max_0, max_1):
     return (tl.expand_dims(offs_0, 1) < max_0) & (tl.expand_dims(offs_1, 0) < max_1)
+
+
+def print_internal(t: torch.Tensor):
+    print(
+        torch.frombuffer(
+            ctypes.string_at(t.data_ptr(), t.storage().nbytes()), dtype=t.dtype
+        )
+    )
