@@ -119,3 +119,14 @@ def assert_close(
     """
     for pair in tensor_pairs:
         torch.testing.assert_close(*pair, rtol=rtol, atol=atol, equal_nan=True)
+
+
+def to_reference(inp: Optional[Tensor], upcast=False, to_cpu=True) -> Optional[Tensor]:
+    if inp is None:
+        return None
+    ref_inp = inp
+    if upcast:
+        ref_inp = ref_inp.to(torch.float64)
+    if to_cpu:
+        ref_inp = ref_inp.to("cpu")
+    return ref_inp
